@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 
-from scipy.stats import norm
+#from scipy.stats import norm
+from scipy.stats import chi2
 
 
 chat_id = 568398984 # Ваш chat ID, не меняйте название переменной
@@ -15,5 +16,4 @@ def solution(p: float, x: np.array) -> tuple:
     sum_x_2 = sum([e ** 2 for e in x])
     q_l = chi2(2 * n).ppf(q=alpha / 2)
     q_r = chi2(2 * n).ppf(q=1 - alpha / 2)
-    # print(q_l, q_r)
     return np.sqrt(sum_x_2 / q_r / 33), np.sqrt(sum_x_2 / q_l / 33)
